@@ -45,7 +45,7 @@ let
   pkgHash =
     with config.hardware.microsoft-surface;
     if kernelVersion == "longterm" then
-      "sha256-Pv7O8D8ma+MPLhYP3HSGQki+Yczp8b7d63qMb6l4+mY="
+      "sha256-x6jVvmWFCEmXAdk+k2IpjBl+5q8VZE6YLZ4lTKaROsE="
     else if kernelVersion == "stable" then
       "sha256-ozvYrZDiVtMkdCcVnNEdlF2Kdw4jivW0aMJrDynN3Hk="
     else
@@ -62,7 +62,7 @@ let
         }:
         {
           linux-surface = fetchFromGitHub {
-            owner = "linux-surface";
+            owner = "tmarkov";
             repo = "linux-surface";
             rev = rev;
             hash = hash;
@@ -71,7 +71,7 @@ let
       )
       {
         hash = pkgHash;
-        rev = "arch-${pkgVersion}-1";
+        rev = "master";
       };
 
   # Fetch and build the kernel package
